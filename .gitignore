@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Python Installer
+pip-log.txt
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Miscellaneous
+*.DS_Store
+*.idea/
+*.vscode/
+*.pyc
+*.bak
+*.swp
+
+# Project-specific files/folders to ignore
+*.env
