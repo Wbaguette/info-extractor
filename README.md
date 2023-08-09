@@ -43,6 +43,7 @@ GUI: Why must I paste a filepath?
 Multiplicity: Why only one file?
    Adding support for parsing more than one file at a time can be a little tricky. It would be nice to have, but the runtime of the program would be very long, not to mention the amount of requests being sent to OpenAI's API.
 
-
+## Does it work?
+Yes. In the 'examples' folder there is a real PowerPoint that I made for a COM class about the book "The Right Stuff". Also in that folder is the saved .txt file that has the model's response. 
 
 
