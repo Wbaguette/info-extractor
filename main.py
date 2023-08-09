@@ -7,15 +7,6 @@ from ai import auth
 from ai import requests
 from parser import parser
 
-# PLAN OF ATTACK : 
-# [✓] Properly pass in file paths via CLI and check if they are valid to info extract  
-# [✓] Check if the file is parseable => is it corrupt or empty?   
-# [✓] If they are valid, do OpenAI auth 
-# [✓] Send request 
-# [✓] How should the response be formatted? => Saved to the same directory as the original file path or just printed out?
-
-# Future: GUI to make it not so insanely hard to pass files
-
 def main():
    args: [str] = sys.argv
    validate_args_len(args)                                    # Can only have 1 file passed in
