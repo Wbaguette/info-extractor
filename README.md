@@ -16,7 +16,7 @@ Simply pass a relative of full path to a non-empty .pptx, .ppt, or .pdf file whe
 ```shell
 python main.py "full_or_relative_path_to_my_file"
 ```
-<pre>
+</pre>
 
 Next, the file path is validated, making sure it exists and is the right file type.
 
