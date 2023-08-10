@@ -37,12 +37,17 @@ Token Size Handling: What happens if I want to get a summary of a MASSIVE file?
    I chose a model with a massive token limit in order to not want to face this issue. I already handle the cases where
    the initial prompt is over the token limit, and if the response + prompt is over the token limit. I do not have a concrete idea of how I want to solve this problem, but I have a faint clue:  Split the input up (by some factor), and then send multiple requests of the split input. Each of these requests would need a prompt that builds on the previous request. In order to get the final output I would have to "glue" each response together to get a final response.
 
-GUI: Why must I paste a filepath?
+UI: Why must I paste a filepath?
    True, I could see myself in the future adding some sort of UI or GUI in order to make it easier to find and pass in a file. 
 
 Multiplicity: Why only one file?
-   Adding support for parsing more than one file at a time might be a valuable thing to have. The runtime would be very long, meaning its only use case would be to pass in a lot of files    at once and then leave the program running for a while. The issue with this is that an error may happen at any point, and cause everything to stop. 
-   
+   Adding support for parsing more than one file at a time might be a valuable thing to have. The runtime would be very long, meaning its only use case would be to pass in a lot of files at once and then leave the program running for a while. The issue with this is that an error may happen at any point, and cause everything to stop. 
+
+Prompt Selection: Only one prompt?
+   Having a default prompt is nice and makes it easy to use. Maybe I would want to add the ability to make your own prompts. This could be useful if you don't just want a summary out of a file, but want something specific; like the ability to pinpoint and target specific topics or areas of interest in a file. 
+   Example: "Give me all the information regarding ducks mating calls from this paper on ducks."
+
+
 ## Does it work?
 Yes. In the 'examples' folder there is a real PowerPoint that I had made in a previous class about the book "The Right Stuff". Also in that folder is the saved .txt file that has the model's response. 
 Note: Since it is using AI, every new response to the same prompt will be different.

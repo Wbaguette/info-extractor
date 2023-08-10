@@ -79,7 +79,7 @@ def prompt_create(type: str) -> str:
    prompt_template = f"""I am going to give you the text content of a {type} file. I would like you to 
                         carefully read over the text. After you have finished reading it over, please 
                         give me a concise yet detailed summary of the text. This summary should be formatted
-                        in a way that highlights the key points and allows a user like myself to revise and study it. 
+                        into sections. Each section should summarize an individual section or paragraph of the text. 
                         Here is the text content: \n\n""" 
    return prompt_template
       
