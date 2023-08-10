@@ -11,26 +11,26 @@ you would want to study before an exam. I would personally use this tool to *sup
 replace them. 
 
 ## How?
-Simply pass a relative of full path to a non-empty .pptx, .ppt, or .pdf file when running the program.
+Simply pass the relative or full path of a .pptx, .ppt, or .pdf file when running the program.
 <pre>
 python main.py "full_or_relative_path_to_my_file"
 </pre>
 
-Next, the file path is validated, making sure it exists and is the right file type.
+Next, the file path is validated, making sure it exists and is an allowed file type.
 
-After this has happenend, the file is parsed using tika, and then cleaned up using a regular expression for newlines (parsing PowerPoints leaves massive amounts of newlines ^_^).
+After this has happenend, we check if the file is empty, and if it isn't, the file is parsed using tika. A regular expression for newlines is used to clean up the text (parsing PowerPoints leaves massive amounts of newlines ^_^).
 
 Then, we do the AI part. This is split into two steps. 
    Firstly, I authenticate by passing my OpenAI API Key and Org ID into openai (which are hidden from the reader), and then I am ready to go (it really is that simple).
 
-   Secondly, I make a chat completion request. OpenAI makes it very easy to use their models. All of the AI related code is in the 'ai' folder, and most of the LOC in there are error handling. Currently, this project is using the 
+   Secondly, I make a chat completion request. OpenAI makes it very easy to use their models. All of the AI related code is in the 'ai' folder. Its pretty small, and most of the LOC in there are error handling. Currently, this project is using the 
    gpt-3.5-turbo-16k model as I realized that I needed to handle a massive amount of tokens.
 
-Once a response has been received from the model, it is error checked. For chat completion requests, we must make sure that the "finish_reason" is nothing other than "stop". More info here: https://platform.openai.com/docs/guides/gpt/chat-completions-api 
+Once a response has been received from the model, it is error checked. For chat completion requests, we must make sure that the "finish_reason" is nothing other than "stop". More info about that here: https://platform.openai.com/docs/guides/gpt/chat-completions-api 
 
-Finally, I gave myself two options on how to "consume" the response. 
-   Option 1: Simply print out the whole response in the terminal
-   Option 2: Save the response as a .txt file in the same directory as the intitial file passed
+Finally, I gave myself two ways to view the response. 
+   Option 1: Response is printed out in the terminal
+   Option 2: Response is saved as a .txt file in the same directory as the initial file
 
 ## Future Features?
 Token Size Handling: What happens if I want to get a summary of a MASSIVE file?
@@ -38,12 +38,13 @@ Token Size Handling: What happens if I want to get a summary of a MASSIVE file?
    the initial prompt is over the token limit, and if the response + prompt is over the token limit. I do not have a concrete idea of how I want to solve this problem, but I have a faint clue:  Split the input up (by some factor), and then send multiple requests of the split input. Each of these requests would need a prompt that builds on the previous request. In order to get the final output I would have to "glue" each response together to get a final response.
 
 GUI: Why must I paste a filepath?
-   True, I could see myself in the future adding a GUI in order to make it MUCH easier to find and pass in a file. 
+   True, I could see myself in the future adding some sort of UI or GUI in order to make it easier to find and pass in a file. 
 
 Multiplicity: Why only one file?
-   Adding support for parsing more than one file at a time can be a little tricky. It would be nice to have, but the runtime of the program would be very long, not to mention the amount of requests being sent to OpenAI's API.
-
+   Adding support for parsing more than one file at a time might be a valuable thing to have. The runtime would be very long, meaning its only use case would be to pass in a lot of files    at once and then leave the program running for a while. The issue with this is that an error may happen at any point, and cause everything to stop. 
+   
 ## Does it work?
-Yes. In the 'examples' folder there is a real PowerPoint that I made for a COM class about the book "The Right Stuff". Also in that folder is the saved .txt file that has the model's response. 
+Yes. In the 'examples' folder there is a real PowerPoint that I had made in a previous class about the book "The Right Stuff". Also in that folder is the saved .txt file that has the model's response. 
+Note: Since it is using AI, every new response to the same prompt will be different.
 
 
