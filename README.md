@@ -30,7 +30,7 @@ Once a response has been received from the model, it is error checked. For chat 
 
 Finally, I gave myself two ways to view the response. 
    Option 1: Response is printed out in the terminal
-   Option 2: Response is saved as a .txt file in the same directory as the initial file
+   Option 2: Response is saved as a .txt file in the same directory as the initial file.
 
 ## Future Features?
 Token Size Handling: What happens if I want to get a summary of a MASSIVE file?
@@ -45,7 +45,7 @@ Multiplicity: Why only one file?
 
 Prompt Selection: Only one prompt?
    Having a default prompt is nice and makes it easy to use. Maybe I would want to add the ability to make your own prompts. This could be useful if you don't just want a summary out of a file, but want something specific; like the ability to pinpoint and target specific topics or areas of interest in a file. 
-   Example: "Give me all the information regarding ducks mating calls from this paper on ducks."
+   Example: "Give me all the information regarding ducks' mating calls from this paper on ducks."
 
 
 ## Does it work?
